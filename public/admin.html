@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PPM Minhajul Haq Bandung Utara</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/bg.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="manifest" href="manifest.json">
+
+</head>
+<body>
+  <div class="navbar-fixed">
+    <nav class="grey lighten-3" role="navigation">
+        <div class="nav-wrapper container ">
+            <a href="index.html" class="brand-logo" id="nav-logo"><img src="img/MH.png"></a>
+            <ul class="right hide-on-med-and-down">
+                <li class="logged-in"><a href="dash.html">Dashboard</a></li>
+                <li class="logged-in"><a href="progress.html">Progress</a></li>                     
+                <li class="admin"><a href="admin.html">Admin</a></li>     
+                <li><a href="about.html">About</a></li>
+                
+
+                <li><a class="button-out waves-effect waves-light btn modal-trigger logged-out" data-target="modal-login" id="login-button" style="display: none;">LOG IN</a></li> 
+                <li><a class="button-in waves-effect waves-light btn logged-in" data-target="modal-login" id="logout-button" style="display: none;">LOG OUT</a></li>  
+
+            </ul>
+      
+
+            <ul id="nav-mobile" class="sidenav">
+                <li class="logged-in"><a href="dash.html">Dashboard</a></li>
+                <li class="logged-in"><a href="progress.html">Progress</a></li>                     
+                <li class="admin"><a href="admin.html">Admin</a></li>   
+                <li><a href="about.html">About</a></li>
+                <li><a class="logged-out modal-trigger"data-target="modal-login"  id="logout" style="display: none;">Log In</a></li>
+                <li><a class="logged-in" id="logout-link" style="display: none;">Log Out</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          </div>
+        </nav>
+  </div>
+
+  
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Password</label>
+        </div>
+        <button class="btn teal darken-2 z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <br><br><br>
+
+        
+
+    <div class="content blurred-box">
+      <h5 class="center-align">Upcoming Events</h5>
+
+        <form id="add-event-form">
+                <input type="text" name="title" placeholder="Title" required>
+                <textarea class="form-control materialize-textarea" name="description" placeholder="Content" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <div class="center-align">
+                        <a class="waves-effect waves-light btn" id="add-event">ADD EVENT</a>
+                </div>
+        </form>
+            
+        <ul id="event-list" class="center-align"></ul>
+
+    </div>
+
+    <br><br>
+
+
+
+
+  <div class="container content blurred-box" style="margin-top: 50px; margin-bottom: 40px;">
+  <h5 class="center-align" style="margin-bottom: 20px;">Presence Check Page</h5>
+        
+    <br><br>
+
+    <div class="row">
+        <div class="col s1"></div>
+        <div class="col s4">
+            <form action="" id="findbyname">
+                <label for="findbyname"><span></span></label>
+                <input placeholder="Search by Name" type="search" class="row l3" id=findname name="findbyname">
+            </form>
+        </div>
+        <div class="col s3" style="margin-right: 20px;">
+            <form action="/action_page.php" id="findbydate">
+            <label for="finddate"></label>
+            <input type="date" id="finddate" name="finddate">
+        </div>
+        <div class="col s1" style="margin-right: 25px; padding-top:10px;">
+          <a class="waves-effect waves-light btn" data-target="modal-login" id="searchbutton">SEARCH</a> 
+        </div>
+        <div class="col s1" style="padding-top:10px;">
+          <a class="waves-effect waves-light btn" data-target="modal-login" id="resetbutton">RESET</a> 
+        </div>
+
+    </div>
+
+    <div class="presence-container">
+        <div class="center-align">
+            <ul id="presence-list"></ul>
+        </div>
+    </div>
+  </div>
+  
+  <br><br>
+  <div class="content blurred-box">
+      <h5 class="center-align" style="margin-bottom: 20px;">Monthly Invoices</h5>
+    <div id="images-tab" class="row"></div>
+  </div>
+
+ 
+  <br><br><br>
+
+  <div class="container blurred-box content">
+    <h5 class="center-align arabic">سموكا الله فاريع امان سلامة لانجار بركة</h5>
+    <h5 class="center-align arabic">آمين يا رب العالمين </h5>
+  </div>
+
+
+  <br><br><br><br>
+  </footer>
+
+  <p class="" id="token"></p>
+
+  <!--  Scripts-->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-messaging.js"></script>
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+ 
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/downloader.js"></script>
+  <script src="js/app.js"></script>
+<!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BBKyuHdLziBSNivkk5UlDvt5Qn0uvz16J8pD5KshadnJokVIeb9GivJBmJ_nl7TvJXYdqXjKks-z0Qx2pJ9kwuw' });</script><!-- end webpushr code -->
+  <script>
+
+auth.onAuthStateChanged(user =>{    
+    if(!user){
+      window.location.href = "index.html"
+    }
+    else{
+        db.collection('users').doc(user.uid).get().then(function(doc) {
+            if(doc.data().type=='Nonadmin'){
+                    window.location.href = "index.html"
+            }
+        });
+    }
+});    
+
+
+
+///////////////////EVENTS CONTROLLER 
+const eventList = document.querySelector('#event-list');
+const eventForm = document.querySelector('#add-event-form');
+const addEvent = document.querySelector('#add-event')
+
+
+addEvent.addEventListener('click', (e) => {
+    e.preventDefault();
+    db.collection('events').add({
+        title: eventForm.title.value,
+        description: eventForm.description.value
+    });
+});
+
+
+//Real time listener
+db.collection('events').orderBy('title').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change =>{
+        if(change.type =='added'){
+            renderEventsAdmin(change.doc);
+        }
+        else if (change.type == 'removed'){
+            let li = eventList.querySelector('[data-id='+change.doc.id+']');
+            eventList.removeChild(li);
+        }
+    });
+});
+
+/////////////////////////////////////////
+
+function renderEventsAdmin(doc){
+    let li = document.createElement('li');
+    let title = document.createElement('span');
+    let cross  = document.createElement('span');
+    let description = document.createElement('div');
+    title.style.marginRight = '20px';
+
+    li.setAttribute('data-id', doc.id)
+    li.style.margin= '25px';
+    title.textContent = doc.data().title;
+    description.textContent = doc.data().description;
+    cross.innerHTML = '<a class="btn-floating btn-small red darken-1">X</a>';
+
+    li.appendChild(title);
+    li.appendChild(cross);
+    li.appendChild(description);
+
+    eventList.appendChild(li);
+
+
+    //Delete data
+    cross.addEventListener('click', (e) =>{
+        e.stopPropagation();
+        let id = e.target.parentElement.parentElement.getAttribute('data-id');
+        db.collection('events').doc(id).delete();
+    });
+}
+
+
+
+
+///////////PRESENCE CONTROLLER
+
+function clearPresenceList(){
+  presenceList = document.querySelector('#presence-list');
+  while (presenceList.firstChild) {
+    presenceList.removeChild(presenceList.lastChild);
+  }
+}
+
+function generatePresenceList(){
+  presenceList = document.querySelector('#presence-list');
+  presenceItems = document.getElementsByClassName('presence-item');
+  queryName = findPresenceByName['findname'].value;
+  queryDate = findPresenceByDate['finddate'].value;
+
+    db.collection("presences").get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            let li = document.createElement('li');
+            let name  = document.createElement('span');
+            let date = document.createElement('span');
+
+            db.collection('users').doc(doc.data().id).get().then(doc2=>{
+                name.textContent = doc2.data().name;
+                date.textContent = (doc.data().time).replace('T', ' ');
+                if((name.textContent.toLowerCase()).includes(queryName.toLowerCase()) && (date.textContent.toLowerCase()).includes(queryDate.toLowerCase()) && queryName!=null && queryDate!=null){
+                    name.style.margin = '20px'; 
+                    li.appendChild(name);
+                    li.appendChild(date);
+                    li.classList.add('presence-item');
+                    presenceList.appendChild(li);
+                }
+                else if((name.textContent.toLowerCase()).includes(queryName.toLowerCase()) && queryDate==null){
+                    name.style.margin = '20px'; 
+                    li.appendChild(name);
+                    li.appendChild(date);
+                    li.classList.add('presence-item');
+                    presenceList.appendChild(li);
+                }
+                else if((date.textContent.toLowerCase()).includes(queryDate.toLowerCase()) && queryName==null){
+                    name.style.margin = '20px'; 
+                    li.appendChild(name);
+                    li.appendChild(date);
+                    li.classList.add('presence-item');
+                    presenceList.appendChild(li);
+                }
+            });
+          });
+    });
+}
+
+//CHECK PRESENCE
+
+
+const buttonSearch = document.querySelector('#searchbutton');
+const findPresenceByName = document.querySelector('#findbyname');
+const findPresenceByDate = document.querySelector('#findbydate');
+const nameField = document.querySelector('#findname');
+const dateField = document.querySelector('#finddate');
+const resetButton = document.querySelector('#resetbutton')
+
+buttonSearch.addEventListener('click', e =>{
+  clearPresenceList();
+  generatePresenceList();
+});
+
+resetButton.addEventListener('click', e =>{
+  clearPresenceList();
+  nameField.value = '';
+  dateField.value = '';
+});
+  
+    
+
+
+
+    
+  </script>
+  </body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PPM Minhajul Haq Bandung Utara</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/bg.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="manifest" href="manifest.json">
+
+</head>
+<body>
+  <div class="navbar-fixed">
+    <nav class="grey lighten-3" role="navigation">
+        <div class="nav-wrapper container ">
+            <a href="index.html" class="brand-logo" id="nav-logo"><img src="img/MH.png"></a>
+            <ul class="right hide-on-med-and-down">
+                <li class="logged-in"><a href="dash.html">Dashboard</a></li>
+                <li class="logged-in"><a href="progress.html">Progress</a></li>                     
+                <li class="admin"><a href="admin.html">Admin</a></li>     
+                <li><a href="about.html">About</a></li>
+                
+
+                <li><a class="button-out waves-effect waves-light btn modal-trigger logged-out" data-target="modal-login" id="login-button" style="display: none;">LOG IN</a></li> 
+                <li><a class="button-in waves-effect waves-light btn logged-in" data-target="modal-login" id="logout-button" style="display: none;">LOG OUT</a></li>  
+
+            </ul>
+      
+
+            <ul id="nav-mobile" class="sidenav">
+                <li class="logged-in"><a href="dash.html">Dashboard</a></li>
+                <li class="logged-in"><a href="progress.html">Progress</a></li>                     
+                <li class="admin"><a href="admin.html">Admin</a></li>   
+                <li><a href="about.html">About</a></li>
+                <li><a class="logged-out modal-trigger"data-target="modal-login"  id="logout" style="display: none;">Log In</a></li>
+                <li><a class="logged-in" id="logout-link" style="display: none;">Log Out</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          </div>
+        </nav>
+  </div>
+
+  
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Password</label>
+        </div>
+        <button class="btn teal darken-2 z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>
+
+
+  <br><br><br>
+        
+
+    <div class="content blurred-box" >
+        <div class="row">
+            <div class="col s3"></div>
+            <h5 class="center-align col s6" style="margin-bottom:30px;">Control Page</h5>
+            <div class="col s3">
+                <a href="" class="btn btn-small save-btn" style="margin-top:15px;"><i class="material-icons">save</i></a>
+            </div>
+        </div>
+
+
+        <ul class="collapsible z-depth-0" style="border: none;">
+            <li>
+              <div class="collapsible-header blurred-box">Al Qur'an</div>
+              <div class="collapsible-body blurred-box-2 row" id="quran">
+                </div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K.Sholah</div>
+              <div class="collapsible-body blurred-box-2 row" id="ksholah"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Sholati Nawafil</div>
+              <div class="collapsible-body blurred-box-2 row" id="knawafil"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Da'wat</div>
+              <div class="collapsible-body blurred-box-2 row" id="kdawat"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Adab</div>
+              <div class="collapsible-body blurred-box-2 row" id="kadab"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Shifatil Jannati Wannar</div>
+              <div class="collapsible-body blurred-box-2 row" id="kjannahwannar"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Janaiz</div>
+              <div class="collapsible-body blurred-box-2 row" id="kjanaiz"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Adillah</div>
+              <div class="collapsible-body blurred-box-2 row" id="kadillah"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Shoum</div>
+              <div class="collapsible-body blurred-box-2 row" id="kshoum"></div>
+            </li>
+            <li>
+                <div class="collapsible-header blurred-box">K. Ahkam</div>
+                <div class="collapsible-body blurred-box-2 row" id="kahkam"></div>
+              </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Manasik Wal Jihad</div>
+              <div class="collapsible-body blurred-box-2 row" id="kmanasikwaljihad"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Jihad</div>
+              <div class="collapsible-body blurred-box-2 row" id="kjihad"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Haji</div>
+              <div class="collapsible-body blurred-box-2 row" id="khaji"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Manasik Haji</div>
+              <div class="collapsible-body blurred-box-2 row" id="kmanasikhaji"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Imaroh</div>
+              <div class="collapsible-body blurred-box-2 row" id="kimaroh"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Kanzil Umal</div>
+              <div class="collapsible-body blurred-box-2 row" id="kkanzilumal"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Khotbah</div>
+              <div class="collapsible-body blurred-box-2 row" id="kkhotbah"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Faroidl</div>
+              <div class="collapsible-body blurred-box-2 row" id="kfaroidl"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Muhtarot Da'wat</div>
+              <div class="collapsible-body blurred-box-2 row" id="kmuhtarotdawat"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">Materi Kelas Pegon</div>
+              <div class="collapsible-body blurred-box-2 row" id="kelpegon"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">Materi Kelas Bacaan</div>
+              <div class="collapsible-body blurred-box-2 row" id="kelbacaan"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">Materi Kelas Lambatan</div>
+              <div class="collapsible-body blurred-box-2 row" id="kellambatan"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">Materi Kelas Cepatan</div>
+              <div class="collapsible-body blurred-box-2 row" id="kelcepatan"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">Materi Kelas Saringan</div>
+              <div class="collapsible-body blurred-box-2 row" id="kelsaringan"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">Materi Al-Fahrasu</div>
+              <div class="collapsible-body blurred-box-2 row" id="alfahrasu"></div>
+            </li>
+            <li>
+              <div class="collapsible-header blurred-box">K. Hidayatul Mustafi</div>
+              <div class="collapsible-body blurred-box-2 row" id="khidayatulmustafi"></div>
+            </li>
+       
+        </ul>
+    </div>
+
+    <br><br>
+    <div class="row content blurred-box justify-content-center" id='achievement-status' >
+      <h5 class="center-align" style="margin-bottom:30px;">Achievement Status</h5>
+
+  </div>
+
+    <br><br><br>
+
+    <div class="container blurred-box content">
+      <h5 class="center-align arabic">سموكا الله فاريع امان سلامة لانجار بركة</h5>
+      <h5 class="center-align arabic">آمين يا رب العالمين </h5>
+    </div>
+    
+    <br><br>
+
+  </div>
+  
+ 
+  </footer>
+
+
+  <!--  Scripts-->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-messaging.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+ 
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+
+
+
+auth.onAuthStateChanged(user =>{    
+    generateCheckboxes('quran', 606, user.uid);
+    generateCheckboxes('ksholah', 151, user.uid);
+    generateCheckboxes('knawafil', 98, user.uid);
+    generateCheckboxes('kdawat', 65, user.uid);
+    generateCheckboxes('kadab', 96, user.uid);
+    generateCheckboxes('kjannahwannar', 84, user.uid);
+    generateCheckboxes('kjanaiz', 79, user.uid);
+    generateCheckboxes('kadillah', 96, user.uid);
+    generateCheckboxes('kshoum', 98, user.uid);
+    generateCheckboxes('kahkam', 125, user.uid);
+    generateCheckboxes('kmanasikwaljihad', 51, user.uid);
+    generateCheckboxes('kjihad', 63, user.uid);
+    generateCheckboxes('khaji', 111, user.uid);
+    generateCheckboxes('kmanasikhaji', 113, user.uid);
+    generateCheckboxes('kimaroh', 102, user.uid);
+    generateCheckboxes('kkanzilumal', 121, user.uid);
+    generateCheckboxes('kkhotbah', 152, user.uid);
+    generateCheckboxes('kfaroidl', 133, user.uid);
+    // generateCheckboxes('kmuhtarotdawat', 171, user.uid);
+
+
+    var saveButton = document.querySelector('.save-btn');
+    saveButton.addEventListener('click', e =>{
+      e.preventDefault();
+      saveChanges('quran', 606, user.uid);
+      saveChanges('ksholah', 151, user.uid);
+      saveChanges('knawafil', 98, user.uid);
+      saveChanges('kdawat', 65, user.uid);
+      saveChanges('kadab', 96, user.uid);
+      saveChanges('kjannahwannar', 84, user.uid);
+      saveChanges('kjanaiz', 79, user.uid);
+      saveChanges('kadillah', 96, user.uid);
+      saveChanges('kshoum', 98, user.uid);
+      saveChanges('kahkam', 125, user.uid);
+      saveChanges('kmanasikwaljihad', 51, user.uid);
+      saveChanges('kjihad', 63, user.uid);
+      saveChanges('khaji', 111, user.uid);
+      saveChanges('kmanasikhaji', 113, user.uid);
+      saveChanges('kimaroh', 102, user.uid);
+      saveChanges('kkanzilumal', 121, user.uid);
+      saveChanges('kkhotbah', 152, user.uid);
+      saveChanges('kfaroidl', 133, user.uid);
+      // saveChanges('kmuhtarotdawat', 171, user.uid);
+
+
+      M.toast({html: 'Changes saved.'});  
+
+    });
+
+});    
+  
+function generateCheckboxes(tabname, num, uid){
+    var tab = document.querySelector('#'+tabname)
+
+    var checkboxesScript = ''
+    for (let i = 1; i <= num; i++){
+        checkboxesScript += `<div class="col m1.5 s2.2 l1.5;">
+                       <label>
+                            <input class="`+tabname+`" type="checkbox" name="`+tabname+i+`" value="happy" style="margin-right:0px;"/>
+                            <span>`+i+`</span>
+                      </label>
+                      </div>`;
+    }
+    tab.innerHTML = checkboxesScript;
+    var achievementStatus = document.querySelector('#achievement-status')
+
+    var checkboxes = document.querySelectorAll('.'+tabname)
+    db.collection(tabname).where('id', '==', uid).get().then(function(querySnapshot) {
+      var completed = 0;
+
+      querySnapshot.forEach(function(doc) {
+        for (let i = 1; i <= doc.data().completedpages.length; i++){
+            if (doc.data().completedpages[i]==true){
+              checkboxes[i-1].checked = true;
+              completed+=1
+            }
+        }
+        doc.ref.update({
+            percentage : completed/doc.data().completedpages.length.toFixed()
+        });
+
+        achievementStatus.innerHTML += `
+                                    <div class="col s12 m4 l3 center-align">`+tabname+`: `+doc.data().percentage.toFixed(6)*100+` %
+                                    `;
+      });
+    });
+}
+
+
+function generateFalseArray(tabname, num){
+    var array = []
+    for (let i = 0; i <= num; i++){
+        array[i]=false;
+    }
+    return array;
+}
+
+function updateBooleanArray(checkboxes, data){
+  var array=[]
+  array[0]=false;
+  for (let i = 1; i <data.length; i++){
+      if (checkboxes[i-1].checked == true){
+        array[i]=true;
+      }
+      else{
+        array[i]=false;
+      }
+  }
+  return array
+}
+
+function saveChanges(tabname, num, uid){
+  var checkboxes = document.querySelectorAll('.'+tabname)
+
+
+  db.collection(tabname).where("id", '==', uid).get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            if(doc.data().id = uid){
+                var booleanArray = updateBooleanArray(checkboxes, doc.data().completedpages)
+                console.log(booleanArray)
+                doc.ref.update({
+                  completedpages : booleanArray
+                });
+            }
+        });
+    });
+
+  db.collection(tabname).where("id", '==', uid).get().then(function(querySnapshot) {
+    if(!querySnapshot == null){
+        db.collection(tabname).add({
+            completedpages: generateFalseArray(tabname, num),
+            id: uid
+        });
+    }
+  });
+}
+
+
+
+
+
+
+//Real time listener
+// db.collection("events").get().then((querySnapshot) => {
+//   querySnapshot.forEach((doc) => {
+//     renderEventsDash(doc)
+//   });
+// });
+
+
+
+    
+  </script>
+  <!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BBKyuHdLziBSNivkk5UlDvt5Qn0uvz16J8pD5KshadnJokVIeb9GivJBmJ_nl7TvJXYdqXjKks-z0Qx2pJ9kwuw' });</script><!-- end webpushr code -->
+  </body>
+</html>

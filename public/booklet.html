@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PPM Minhajul Haq Bandung Utara</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/bg.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="manifest" href="manifest.json">
+
+</head>
+<body>
+  <div class="navbar-fixed">
+    <nav class="grey lighten-3" role="navigation">
+        <div class="nav-wrapper container ">
+            <a href="index.html" class="brand-logo" id="nav-logo"><img src="img/MH.png"></a>
+            <ul class="right hide-on-med-and-down">
+                <li class="logged-in"><a href="dash.html">Dashboard</a></li>
+                <li class="logged-in"><a href="progress.html">Progress</a></li>                     
+                <li class="admin"><a href="admin.html">Admin</a></li>     
+                <li><a href="about.html">About</a></li>
+                
+
+                <li><a class="button-out waves-effect waves-light btn modal-trigger logged-out" data-target="modal-login" id="login-button" style="display: none;">LOG IN</a></li> 
+                <li><a class="button-in waves-effect waves-light btn logged-in" data-target="modal-login" id="logout-button" style="display: none;">LOG OUT</a></li>  
+
+            </ul>
+      
+
+            <ul id="nav-mobile" class="sidenav">
+                <li class="logged-in"><a href="dash.html">Dashboard</a></li>
+                <li class="logged-in"><a href="progress.html">Progress</a></li>                     
+                <li class="admin"><a href="admin.html">Admin</a></li>   
+                <li><a href="about.html">About</a></li>
+                <li><a class="logged-out modal-trigger"data-target="modal-login"  id="logout" style="display: none;">Log In</a></li>
+                <li><a class="logged-in" id="logout-link" style="display: none;">Log Out</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          </div>
+        </nav>
+  </div>
+
+  
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Password</label>
+        </div>
+        <button class="btn teal darken-2 z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <br><br><br>
+
+        
+
+    <div class="">
+      <h5 class="center-align container">Student's Booklet</h5>
+            
+        <div id="booklet" class="row"></div>
+
+    </div>
+
+    
+  <br><br><br>
+
+  <br><br><br><br>
+  </footer>
+
+  <p class="" id="token"></p>
+
+  <!--  Scripts-->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-messaging.js"></script>
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+ 
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/profiles.js"></script>
+  <script src="js/downloader.js"></script>
+  <script src="js/app.js"></script>
+<!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BBKyuHdLziBSNivkk5UlDvt5Qn0uvz16J8pD5KshadnJokVIeb9GivJBmJ_nl7TvJXYdqXjKks-z0Qx2pJ9kwuw' });</script><!-- end webpushr code -->
+  <script>
+
+auth.onAuthStateChanged(user =>{    
+    if(!user){
+      window.location.href = "index.html"
+    }
+    else{
+        db.collection('users').doc(user.uid).get().then(function(doc) {
+            if(doc.data().type=='Nonadmin'){
+                    window.location.href = "index.html"
+            }
+        });
+    }
+});    
+
+
+
+    
+
+
+
+    
+  </script>
+  </body>
+</html>
